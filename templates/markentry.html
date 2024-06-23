@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Fetching</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-image: url(https://wallpapercave.com/wp/wp2508376.jpg);
+        }
+        .subtext{
+            margin-top:20px;
+            border-radius: 6px;
+            box-shadow: 0px 0px 12px rgb(56, 161, 202);
+            font-size: 20px;
+        }
+        #sub,.names{
+            height: 40px;
+            font-size: 20px;
+        }
+        label{
+            font-size: 30px;
+        }
+        #btn{
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 5px;
+            color: white;
+            background-color: orangered;
+            border-radius:4px;
+            box-shadow: 0 0 10 blue;
+            font-size: 25px;
+        }
+        ::placeholder,.names{
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        ::placeholder:focus{
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <form id='form' method="post">
+            <label>Enter the No of Subject</label>
+            <input type="text" id="sub" placeholder="Enter the No of Subject" class="form-control"><br>
+            <button type="button" id='btn' onclick="fetchSubjects()">Fetch Subject</button>
+        </form>
+        
+    </section>
+    <section>
+        <div class="names container"></div>
+        
+    </section>
+    <script>
+        function fetchSubjects() {
+            var noof = document.getElementById('sub').value;
+            var list = document.getElementsByClassName('names')[0];
+            list.innerHTML = '';
+            for (let i = 0; i < noof; i++) {
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = 'Enter the subject name';
+                input.style.height=40 + 'px';
+                input.className='subtext form-control';
+                input.id = 'sub' + i;
+                list.appendChild(input);
+                list.appendChild(document.createElement('br'));
+            }
+            var btn=document.createElement('input');
+            btn.type='submit';
+            btn.value='Fetch Subjects Details';
+            btn.id='btn';
+            btn.style.width='100%';
+            list.appendChild(btn);
+            list.appendChild(document.createElement('br'));
+        }
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        label{
+            font-weight: 500;
+        }
+        div{
+            font-size: 25px;
+            color: white;
+        }
+        form{
+            backdrop-filter: blur(6px);
+        }
+        #dob,.dob{
+            padding: 10px;
+            height: 45px;
+            font-size: 25px;
+            color:whitesmoke;
+            text-indent: 20px;
+            border: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+        }
+        #dob:focus,#dob:active,.dob:focus,.dob:active{
+            outline: none;
+            color: whitesmoke;
+        }
+        #error{
+            color: white;
+            background: red;
+            font-size: 20px;
+            text-align: center;
+
+        }
+        
+    </style>
+</head>
+
+<body style="background-image: url(https://wallpapercave.com/wp/wp2508376.jpg);">
+    <section class="container" style="margin:10% 15%;box-shadow: 4px 4px 28px rgb(212, 181, 181);border-radius: 15px;">
+        <p id="login" style="color:white;background-color: red;font-size: 20px;font-weight: 300;text-align: center;">{{datas['error']}}</p>
+        <form  method="post" role="form" class=" container" onsubmit="return error()">
+            <h2 class="center" style="text-align:center; font-size: 40px;background-color:black;color: wheat;padding: 15px;">Admin Register</h2>
+            <p id="error"></p>
+            <div class="form-group" style="margin-left:10%">
+                <label for="Register No" style="margin-top: 20px;">Username</label>
+                <input type="text" id="dob" name="username" placeholder="Enter the Username" class="form-control" style="width: 80%;">
+                
+            </div><br>
+            <div class="form-group" style="margin-left:10%"> 
+                <label for="password">Password</label><br>
+                <input type="text" id="pass"  class='dob' name="pass" placeholder="Enter the Password" style="width: 80%;" class="form-control">
+            </div><br>
+            <div class="form-group" style="margin-left:10%"> 
+                <label for="password">Confirm Password</label>
+                <input type="text" id="cpass" class="dob" name="cpass" placeholder="Enter the Confirm Password" style="width: 80%;" class="form-control">
+            </div><br>
+            <div class="form-group" style="margin-left:10%"> 
+                <label for="password">Enter the Passcode</label>
+                <input type="text" id="passcode" class="dob" name="passcode" placeholder="Enter the Passcode" style="width: 80%;" class="form-control">
+            </div><br>
+            
+            <div class="form-group" style="margin-left: 40%; padding:12px;">
+                <button type="submit" class="btn btn-primary" style="padding: 10px;font-size:20px;" >Register</button>
+            </div>
+
+        </form>
+    </section>
+
+    <script>
+        function error(){
+          
+            const user = document.getElementById('dob').value;
+            const pass = document.getElementById('pass').value;
+            const cpass = document.getElementById('cpass').value;
+            const passcode = document.getElementById('passcode').value;
+            
+            var errormsg = document.getElementById('error');
+            errormsg.innerHTML = '';
+            if(pass == '' || cpass == '' || user == '' || passcode=='') {
+                errormsg.innerHTML = 'Fill the Username Or Password';
+                return false;
+            } else if(pass !== cpass){
+                errormsg.innerHTML = 'Password does not match';
+                return false;
+            }
+            return true;
+         
+        }
+    </script>
+
+</body>
+
+</html>

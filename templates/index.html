@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div{
+            font-size: 25px;
+            color: white;
+        }
+        form{
+            backdrop-filter: blur(6px);
+        }
+        #dob{
+            padding: 10px;
+            height: 45px;
+            font-size: 25px;
+            color:whitesmoke;
+            text-indent: 20px;
+            border: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+        }
+        #dob:focus,#dob:active{
+            outline: none;
+            color: whitesmoke;
+        }
+        
+    </style>
+</head>
+
+<body style="background-image: url(https://www.wallpapertip.com/wmimgs/49-493241_college-student-wallpaper.jpg);">
+    <section class="container" style="margin:10% 15%;box-shadow: 4px 4px 28px rgb(212, 181, 181);border-radius: 15px;">
+        <form  method="post" role="form" class=" container">
+            <h2 class="center" style="text-align:center; font-size: 40px;background-color:black;color: wheat;padding: 15px;">Student Portal</h2>
+            <div class="form-group" style="margin-left:10%">
+                <label for="Register No" style="margin-top: 20px;">Register No</label>
+                    <input type="text"id="dob"name="regno" placeholder="Enter the Register Number" class="form-control" style="width: 80%;">
+                
+            </div><br>
+            <div class="form-group" style="margin-left:10%"> 
+                <label for="DOB">Date Of Birth</label>
+                <input type="text" id="dob" name="dob" placeholder="YYYY-MM-DD" style="width: 80%;" class="form-control">
+
+            </div><br>
+            <div class="form-group" style="margin-left: 40%; padding:12px;"> <label for="Submit">
+                <button type="submit" class="btn btn-primary " style="padding: 10px;font-size:20px;" >Get The Result</button>
+            
+        </div>
+
+        </form>
+    </section>
+
+
+</body>
+
+</html>

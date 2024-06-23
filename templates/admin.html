@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+       
+        div{
+            font-size: 25px;
+            color: white;
+        }
+        form{
+            backdrop-filter: blur(6px);
+        }
+        #dob{
+            padding: 10px;
+            height: 45px;
+            font-size: 25px;
+            color: whitesmoke;
+            text-indent: 20px;
+            border: none;
+            border-bottom: 2px solid black;
+            background-color: transparent;
+        }
+        #dob:focus,#dob:active{
+            outline: none;
+            color: whitesmoke;
+        }
+        ::placeholder {
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(https://wallpapercave.com/wp/wp2508376.jpg);">
+    <section class="container" style="margin:10% 15%;box-shadow: 4px 4px 28px rgb(212, 181, 181);border-radius: 15px;">
+        <form  method="post" role="form" class=" container">
+            <h2 class="center" style="text-align:center; font-size: 40px;background-color:black;color: wheat;padding: 15px;">Admin   Portal</h2>
+            <div class="form-group" style="margin-left:10%">
+                <label for="Register No" style="margin-top: 20px;">Username</label>
+                <input type="text"id="dob" name="uname" placeholder="Enter the Username" class="form-control" style="width: 80%;background-color: white;">
+            </div><br>
+            <div class="form-group" style="margin-left:10%"> 
+                <label for="DOB">Password</label>
+                <input type="text" id="dob" name="password" placeholder="Password" style="width: 80%;background-color: white;" class="form-control">
+            </div><br>
+            <div class="acc">
+                <a href="{{ url_for('adminreg') }}" style="color:white;display:flex;align-items:center;justify-content: center;">Don't Have an Account?</a>
+            </div>
+            <div class="form-group" style="margin-left: 40%; padding:12px;"> <label for="Submit">
+                <button type="submit" class="btn btn-primary " style="padding: 12px;font-size:27px;" >Login</button>
+        </div>
+        </form>
+    </section>
+</body>
+
+</html>

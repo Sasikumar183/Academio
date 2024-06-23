@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #col{
+            text-transform:uppercase;
+        }
+        .det{
+            display: flex;
+            flex-direction: column;
+            padding-left: 50px;
+            color: white;
+            transition: 3s;
+            background-color: grey;
+        }
+   
+
+        body{
+            background-image: url(https://thumbs.dreamstime.com/z/results-words-wooden-blocks-letters-result-concept-top-view-background-results-words-wooden-blocks-letters-176584013.jpg);
+        }
+       
+    
+    </style>
+</head>
+<body>
+
+    <div class="det">
+        <h1>Student Details:</h1>
+        <h3>Student Name: {{ data['Name'] }}</h3>
+        <h3>Register No: {{data['registerno']}}</h3>
+        <h3>College: Jai Shriram Engineering College</h3>
+    </div>
+    <div  style="width: 60%;margin-top: 40px;margin-left: 10%;">
+        <h1 style="text-align: center;font-size: 25px;">Result</h1>
+        <div class="bg">
+          
+        <table role="table" class="table" style="padding:13px;box-shadow: 6px 6px 13px grey;margin: 0 6%;">
+            <thead>
+                <tr style="font-size:27px;background-color:aqua;padding:14px;border: 2px solid black;">
+                    <th class="col-xs-3 col-md-2">Subject</th>
+                    <th class="col-xs-3 col-md-2">Marks</th>
+                    <th class="col-xs-3 col-md-2">Grade</th>
+                    <th class="col-xs-3 col-md-2">Result</th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 18px; padding: 15px;color:white;background-color:rgb(65, 63, 63);border: 2px solid gray;">
+                {% for i in range(1,len(column_names)) %}
+                <tr>
+                    <td class="col-xs-3 col-md-2"  id="col" >{{ column_names[i] }}</td>
+                    <td  class="mark col-xs-3 col-md-2" style="background-color: transparent;">{{ result[column_names[i]] }}</td>
+                    <td  class="grade col-xs-3 col-md-2"></td>
+                    <td  class="result col-xs-3 col-md-2"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script>
+        (function($) {
+            $(document).ready(function(){
+                grading(); // Call the grading function after the content has loaded
+                resulting(); // Call the resulting function after the content has loaded
+            });
+
+            function resulting() {
+                // Select all elements with the mark class
+                var marks = document.querySelectorAll('.mark');
+
+                marks.forEach(function(markElement) {
+                    const resultElement = markElement.parentElement.querySelector('.result'); // Get the result element in the same row
+                    resultElement.innerHTML = ''; // Clear previous result
+
+                    const markText = markElement.textContent.trim(); // Get the text content of the mark
+                    const markValue = parseFloat(markText); // Parse the numerical value from the text
+
+                    if (!isNaN(markValue)) { // Check if it's a valid number
+                        if (markValue >= 45) {
+                            resultElement.innerHTML = 'PASS';
+                        } else {
+                            resultElement.innerHTML = 'FAIL';
+                        }
+                    } else {
+                        resultElement.innerHTML = 'Invalid Mark'; // Display an error message if the mark is not a number
+                    }
+                });
+            }
+
+            function grading(){
+                // Select all elements with the mark class
+                var marks = document.querySelectorAll('.mark');
+
+                marks.forEach(function(markElement) {
+                    const gradeElement = markElement.parentElement.querySelector('.grade'); // Get the grade element in the same row
+                    gradeElement.innerHTML = ''; // Clear previous grade
+
+                    const markText = markElement.textContent.trim(); // Get the text content of the mark
+                    const markValue = parseFloat(markText);
+
+                    if (!isNaN(markValue)) { // Check if it's a valid number
+                        if (markValue >= 90) {
+                            gradeElement.innerHTML = 'O';
+                        } else if (markValue >= 80) {
+                            gradeElement.innerHTML = 'A+';
+                        } else if (markValue >= 70) {
+                            gradeElement.innerHTML = 'A';
+                        } else if (markValue >= 60) {
+                            gradeElement.innerHTML = 'B+';
+                        } else if (markValue >= 50) {
+                            gradeElement.innerHTML = 'B';
+                        } else if (markValue >= 45) {
+                            gradeElement.innerHTML = 'C';
+                        } else {
+                            gradeElement.innerHTML = 'F';
+                        }
+                    } else {
+                        gradeElement.innerHTML = 'Invalid Mark'; // Display an error message if the mark is not a number
+                    }
+                });
+            }
+        })(jQuery);
+    </script>
+
+</body>
+</html>
